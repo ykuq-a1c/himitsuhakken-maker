@@ -1,0 +1,247 @@
+/* ========================================
+   content.css — ページ内注入スタイル
+   ヒミツ発見メーカー v3
+   ======================================== */
+
+/* 範囲選択: ドラッグ中の選択矩形 */
+#himitsu-range-select {
+  position: fixed;
+  border: 2px dashed #a855f7;
+  background: rgba(168, 85, 247, 0.08);
+  pointer-events: none;
+  z-index: 2147483647;
+  box-sizing: border-box;
+}
+
+/* ピッカーモード: ホバー時ハイライト */
+.himitsu-highlight {
+  outline: 3px solid #a855f7 !important;
+  outline-offset: 2px !important;
+  cursor: crosshair !important;
+}
+
+/* ========================================
+   ヒント表示（ピッカーモード案内）
+   ======================================== */
+#himitsu-hint {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 10, 50, 0.88);
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  z-index: 2147483647;
+  pointer-events: none;
+  border: 1px solid rgba(168, 85, 247, 0.6);
+  white-space: nowrap;
+}
+
+/* ========================================
+   プレビューパネル（画像確認）
+   ======================================== */
+#himitsu-preview-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#himitsu-preview-panel {
+  background: #1e0a32;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 480px;
+  width: 90%;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#himitsu-preview-panel h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #d8b4fe;
+}
+
+#himitsu-preview-img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #0a0010;
+}
+
+.himitsu-preview-info {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.himitsu-btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.himitsu-btn {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.himitsu-btn-primary {
+  background: #a855f7;
+  color: #fff;
+}
+
+.himitsu-btn-primary:hover {
+  background: #9333ea;
+}
+
+.himitsu-btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: #ccc;
+}
+
+.himitsu-btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ========================================
+   ローディング表示
+   ======================================== */
+#himitsu-loading {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.himitsu-loading-box {
+  background: #1e0a32;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 12px;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.himitsu-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(168, 85, 247, 0.3);
+  border-top-color: #a855f7;
+  border-radius: 50%;
+  animation: himitsu-spin 0.8s linear infinite;
+}
+
+@keyframes himitsu-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   レンズゲームオーバーレイ
+   ======================================== */
+#himitsu-game-overlay {
+  position: fixed;
+  z-index: 2147483645;
+  cursor: none;
+  overflow: hidden;
+}
+
+#himitsu-game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* コントロールバー（オーバーレイ上部に独立配置） */
+#himitsu-controls {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  z-index: 2147483647;
+  background: rgba(15, 0, 30, 0.82);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 8px;
+  padding: 4px 6px;
+  font-family: sans-serif;
+}
+
+#himitsu-lens-hint {
+  color: #9ca3af;
+  font-size: 11px;
+  white-space: nowrap;
+  pointer-events: none;
+  padding: 0 4px;
+}
+
+.himitsu-ctrl-btn {
+  background: none;
+  border: none;
+  color: #d8b4fe;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1.2;
+}
+
+.himitsu-ctrl-btn:hover {
+  background: rgba(168, 85, 247, 0.3);
+  color: #fff;
+}
+
+/* トースト（保存完了など） */
+#himitsu-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: sans-serif;
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 2147483647;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* エラー表示 */
+#himitsu-error {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(127, 29, 29, 0.9);
+  color: #fca5a5;
+  font-family: sans-serif;
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 2147483647;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+}

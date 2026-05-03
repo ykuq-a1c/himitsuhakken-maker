@@ -1,0 +1,372 @@
+/* ========================================
+   options.css — 設定ページスタイル
+   ======================================== */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0f0020;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+h1 {
+  font-size: 20px;
+  color: #d8b4fe;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ========== カード ========== */
+.card {
+  background: #1a0a2e;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========== フォーム部品 ========== */
+label {
+  display: block;
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  background: #0f0020;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #a855f7;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 72px;
+  font-family: inherit;
+}
+
+input[type="number"] {
+  width: 64px;
+  background: #0f0020;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 6px 8px;
+  font-size: 14px;
+  outline: none;
+  text-align: center;
+}
+
+select {
+  cursor: pointer;
+}
+
+/* ========== ボタン ========== */
+.btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn:hover { opacity: 0.85; }
+
+.btn-primary {
+  background: #a855f7;
+  color: #fff;
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.07);
+  color: #cbd5e1;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.btn-small {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* ========== セット一覧 ========== */
+.set-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.set-item {
+  background: #0f0020;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.set-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.set-name {
+  font-weight: bold;
+  color: #c4b5fd;
+  font-size: 14px;
+}
+
+.set-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.prompt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 12px;
+}
+
+.prompt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.prompt-row textarea {
+  flex: 1;
+  min-height: 56px;
+  font-size: 13px;
+}
+
+.prompt-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 60px;
+}
+
+.prompt-meta label {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0;
+}
+
+.prompt-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.btn-icon {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  color: #94a3b8;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btn-icon:hover { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; }
+
+/* ========== API接続先 ========== */
+.provider-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.provider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.provider-row .radio-row {
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.provider-key-input {
+  flex: 1;
+  width: auto !important;
+}
+
+/* ========== フローモード ========== */
+.flow-mode-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.radio-row input[type="radio"] {
+  width: auto;
+  accent-color: #a855f7;
+  cursor: pointer;
+}
+
+.radio-label {
+  color: #cbd5e1;
+}
+
+#flow-fixed-select-wrap {
+  padding-left: 24px;
+}
+
+/* ========== 保存バー ========== */
+.save-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+#save-status {
+  font-size: 13px;
+  color: #86efac;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#save-status.visible {
+  opacity: 1;
+}
+
+/* ========== モーダル（セット編集） ========== */
+#modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 9998;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 60px;
+  overflow-y: auto;
+}
+
+#modal-panel {
+  background: #1a0a2e;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#modal-panel h2 {
+  font-size: 16px;
+  color: #d8b4fe;
+}
+
+.modal-prompt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-prompt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.modal-prompt-row textarea {
+  flex: 1;
+  min-height: 64px;
+  font-size: 13px;
+}
+
+.modal-prompt-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.modal-prompt-right label {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.modal-btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.empty-hint {
+  color: #4b5563;
+  font-size: 13px;
+  text-align: center;
+  padding: 12px 0;
+}

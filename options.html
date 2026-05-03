@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ヒミツ発見メーカー — 設定</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+<div class="page">
+
+  <h1>🔮 ヒミツ発見メーカー — 設定</h1>
+
+  <!-- API接続先 / APIキー -->
+  <div class="card">
+    <div class="card-title">API接続先 / APIキー</div>
+    <div class="provider-list">
+      <div class="provider-row">
+        <label class="radio-row">
+          <input type="radio" name="provider" value="xai" id="provider-xai" />
+          <span class="radio-label">xAI (Grok)</span>
+        </label>
+        <input type="password" class="provider-key-input" id="api-key-xai" placeholder="xai-..." autocomplete="off" />
+      </div>
+      <div class="provider-row">
+        <label class="radio-row">
+          <input type="radio" name="provider" value="venice" id="provider-venice" />
+          <span class="radio-label">Venice AI</span>
+        </label>
+        <input type="password" class="provider-key-input" id="api-key-venice" placeholder="ven-..." autocomplete="off" />
+      </div>
+    </div>
+    <div style="font-size:11px; color:#4b5563; margin-top:4px;">
+      ラジオボタンで使用するAPIを選択。両方のキーを保存しておけば切り替えが簡単です。
+    </div>
+  </div>
+
+  <!-- プロンプトセット -->
+  <div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="card-title">プロンプトセット</div>
+      <button class="btn btn-primary btn-small" id="add-set-btn">＋ 新しいセット</button>
+    </div>
+    <div class="set-list" id="set-list">
+      <div class="empty-hint">セットがありません。「新しいセット」から追加してください。</div>
+    </div>
+  </div>
+
+  <!-- 使用するフロー -->
+  <div class="card">
+    <div class="card-title">使用するフロー</div>
+    <div class="flow-mode-row">
+      <label class="radio-row">
+        <input type="radio" name="flow-mode" value="fixed" id="flow-fixed" checked />
+        <span class="radio-label">固定セットを使う</span>
+      </label>
+      <div id="flow-fixed-select-wrap">
+        <select id="flow-fixed-select">
+          <option value="">（セットを選択）</option>
+        </select>
+      </div>
+      <label class="radio-row">
+        <input type="radio" name="flow-mode" value="random" id="flow-random" />
+        <span class="radio-label">全セットからランダムで選ぶ</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- ゲーム設定 -->
+  <div class="card">
+    <div class="card-title">ゲーム設定</div>
+    <div>
+      <label for="initial-lens-size">開始時のレンズサイズ：<span id="lens-size-display">70</span></label>
+      <input type="range" id="initial-lens-size" min="20" max="300" step="10" value="70"
+             style="width:100%; accent-color:#a855f7; margin-top:6px;" />
+      <div style="display:flex; justify-content:space-between; font-size:11px; color:#4b5563; margin-top:2px;">
+        <span>小 (20)</span><span>大 (300)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 自動保存設定 -->
+  <div class="card">
+    <div class="card-title">自動保存設定</div>
+
+    <div>
+      <label>保存フォルダ</label>
+      <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
+        <span id="folder-name" style="color:#94a3b8; font-size:13px; flex:1; word-break:break-all;">（未選択）</span>
+        <button class="btn btn-ghost btn-small" id="pick-folder-btn">フォルダを選択</button>
+      </div>
+      <div style="font-size:11px; color:#4b5563; margin-top:6px;">
+        ※ フォルダ未選択のときは自動保存されません（ゲーム中の再保存ボタンは使えます）
+      </div>
+    </div>
+
+    <div>
+      <label for="naming-mode">キホン画像のファイル名</label>
+      <select id="naming-mode">
+        <option value="datetime">日付時刻（例: 20240416_153042）</option>
+        <option value="sequential">通し番号（例: 001、002…）</option>
+        <option value="original">元のファイル名そのまま（取得できない場合は日付時刻）</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="secret-suffix">ヒミツ画像の名前末尾に追加する文字列</label>
+      <input type="text" id="secret-suffix" placeholder="_secret" />
+      <div style="font-size:11px; color:#4b5563; margin-top:4px;">
+        例: 末尾「_secret」→ キホン「001.jpg」ならヒミツは「001_secret.png」
+      </div>
+    </div>
+  </div>
+
+  <!-- 保存 -->
+  <div class="save-bar">
+    <span id="save-status">✓ 保存しました</span>
+    <button class="btn btn-primary" id="save-btn">設定を保存</button>
+  </div>
+
+</div>
+
+<!-- セット編集モーダル（JS で動的に作成） -->
+
+<script src="options.js"></script>
+</body>
+</html>

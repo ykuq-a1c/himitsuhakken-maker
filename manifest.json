@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "ヒミツ発見メーカー",
+  "version": "0.1",
+  "description": "ページ上の画像からヒミツ発見ゲームを作成します",
+  "permissions": ["activeTab", "storage", "scripting", "offscreen"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "ヒミツ発見メーカー（クリックで画像選択開始）"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
