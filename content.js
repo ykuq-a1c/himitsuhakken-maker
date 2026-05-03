@@ -281,7 +281,8 @@ function init() {
     const tag = el.tagName ? el.tagName.toLowerCase() : '';
     if (tag === 'img') {
       const src = el.src || el.dataset.src || el.dataset.lazySrc || el.dataset.original || '';
-      return !!(src && !src.startsWith('data:image/gif') && src !== window.location.href);
+      const isImageDoc = document.contentType && document.contentType.startsWith('image/');
+      return !!(src && !src.startsWith('data:image/gif') && (src !== window.location.href || isImageDoc));
     }
     if (tag === 'picture') {
       const img = el.querySelector('img');
@@ -320,7 +321,8 @@ function init() {
         return { dataUrl: canvas.toDataURL('image/png'), mimeType: 'image/png', width: canvas.width, height: canvas.height };
       }
       if (tag === 'img') {
-        const realSrc = (el.src && el.src !== window.location.href)
+        const isImageDoc = document.contentType && document.contentType.startsWith('image/');
+        const realSrc = (el.src && (el.src !== window.location.href || isImageDoc))
           ? el.src
           : (el.dataset.src || el.dataset.lazySrc || el.dataset.original || '');
         if (!realSrc) return null;
